@@ -10,7 +10,7 @@ import SDWebImage
 
 class ViewController: BaseViewController{
     
-    let viewModel = BaseViewModel()
+    let viewModel = DashboardViewModel()
     var moviesList = [Result]()
     @IBOutlet weak var moviesCollectionView: UICollectionView!
     var page = 1
@@ -87,6 +87,12 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (self.view.frame.width - 30) / 2
         return CGSize(width:width, height:250)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailVC = UIStoryboard.Storyboards.DetailScreen.instantiateInitialViewController() as! MovieDetailViewController
+        detailVC.selectedMovie = moviesList[indexPath.row]
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
 }

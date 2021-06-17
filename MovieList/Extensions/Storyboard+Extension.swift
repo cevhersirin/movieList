@@ -6,3 +6,11 @@
 //
 
 import Foundation
+import UIKit
+
+extension UIStoryboard {
+    enum Storyboards  {
+        static let DetailScreen = UIStoryboard(name: "MovieDetailStoryboard", bundle: nil)
+    }
+}
+
