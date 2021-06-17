@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="teh-Ni-d97">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="hX7-LK-Erq">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="teh-Ni-d97" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cdh-9p-EQK">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="GYE-Fo-mrQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KJF-hL-gY5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-807" y="76"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MovieList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4v8-ID-XvB" customClass="TopNavBar" customModule="MovieList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="XGg-X3-Zg6"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="M2F-yR-akr">
+                                <rect key="frame" x="0.0" y="75" width="414" height="821"/>
+                                <color key="backgroundColor" red="0.73775917290000004" green="0.75592815879999997" blue="0.8078511357" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VIf-Fh-0Lm">
+                                    <size key="itemSize" width="182" height="280"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.73775917290000004" green="0.75592815879999997" blue="0.8078511357" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="M2F-yR-akr" secondAttribute="trailing" id="0Sm-yW-sqj"/>
+                            <constraint firstItem="4v8-ID-XvB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="2fd-9H-lpk"/>
+                            <constraint firstAttribute="bottom" secondItem="M2F-yR-akr" secondAttribute="bottom" id="Yy5-xa-gmR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4v8-ID-XvB" secondAttribute="trailing" id="fBy-Ky-FDg"/>
+                            <constraint firstItem="4v8-ID-XvB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ksm-6I-krl"/>
+                            <constraint firstItem="M2F-yR-akr" firstAttribute="top" secondItem="4v8-ID-XvB" secondAttribute="bottom" id="o8P-NW-qlU"/>
+                            <constraint firstItem="M2F-yR-akr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="r5D-JQ-Loj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="V05-oc-xDp"/>
+                    <connections>
+                        <outlet property="moviesCollectionView" destination="M2F-yR-akr" id="SVc-Do-dpG"/>
+                        <outlet property="topNavBar" destination="4v8-ID-XvB" id="NIe-WH-Oee"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="76"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
