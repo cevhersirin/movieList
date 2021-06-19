@@ -24,6 +24,14 @@ extension UIView {
             UIView.AutoresizingMask.flexibleHeight
         ]
         addSubview(view)
-        
+    }
+    
+    func dropShadow() {
+        layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        layer.shadowColor = UIColor.gray.cgColor
+        layer.shadowOpacity = 0.7
+        layer.shadowRadius = 5.0
+        //layer.shouldRasterize = true
+        layer.masksToBounds = false
     }
 }
