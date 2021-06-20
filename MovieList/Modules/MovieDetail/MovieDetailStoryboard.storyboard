@@ -27,7 +27,7 @@
                                 <rect key="frame" x="0.0" y="75" width="414" height="787"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iWJ-fv-cSF">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="603.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="653.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aa9-3q-Ggz">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
@@ -110,36 +110,28 @@
                                                     <constraint firstItem="PmS-vP-dQe" firstAttribute="leading" secondItem="wWe-lr-ZP5" secondAttribute="leading" constant="15" id="cB0-yh-WCx"/>
                                                 </constraints>
                                             </view>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qBT-WY-qcn">
+                                                <rect key="frame" x="0.0" y="603.5" width="414" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="SmW-TR-ItA"/>
+                                                </constraints>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="F55-ql-pQk">
+                                                    <size key="itemSize" width="128" height="128"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="20" minY="5" maxX="20" maxY="5"/>
+                                                </collectionViewFlowLayout>
+                                                <cells/>
+                                            </collectionView>
                                         </subviews>
                                     </stackView>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PZf-qa-ekx">
-                                        <rect key="frame" x="0.0" y="603.5" width="414" height="40"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SMy-ru-H5d">
-                                                <rect key="frame" x="0.0" y="0.0" width="580" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="GRE-kj-8AC"/>
-                                                </constraints>
-                                            </stackView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Jo5-59-OSI"/>
-                                            <constraint firstItem="SMy-ru-H5d" firstAttribute="top" secondItem="PZf-qa-ekx" secondAttribute="top" id="Qyd-vq-A1y"/>
-                                            <constraint firstAttribute="bottom" secondItem="SMy-ru-H5d" secondAttribute="bottom" id="TAj-P3-p3b"/>
-                                            <constraint firstAttribute="trailing" secondItem="SMy-ru-H5d" secondAttribute="trailing" id="f56-5L-zUX"/>
-                                            <constraint firstAttribute="height" constant="40" id="lPn-aC-q6Y"/>
-                                            <constraint firstItem="SMy-ru-H5d" firstAttribute="leading" secondItem="PZf-qa-ekx" secondAttribute="leading" id="sxf-sV-XYi"/>
-                                        </constraints>
-                                    </scrollView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="PZf-qa-ekx" firstAttribute="top" secondItem="iWJ-fv-cSF" secondAttribute="bottom" id="0Ho-R6-fN4"/>
                                     <constraint firstItem="iWJ-fv-cSF" firstAttribute="top" secondItem="QMk-UC-LBO" secondAttribute="top" id="6X5-Kg-Hwc"/>
                                     <constraint firstItem="iWJ-fv-cSF" firstAttribute="width" secondItem="QMk-UC-LBO" secondAttribute="width" id="8ob-jC-5QQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="PZf-qa-ekx" secondAttribute="trailing" id="H5j-if-OuB"/>
                                     <constraint firstAttribute="bottom" secondItem="iWJ-fv-cSF" secondAttribute="bottom" id="LL3-aZ-NBQ"/>
                                     <constraint firstAttribute="trailing" secondItem="iWJ-fv-cSF" secondAttribute="trailing" id="VwC-Gp-9iF"/>
-                                    <constraint firstItem="PZf-qa-ekx" firstAttribute="leading" secondItem="QMk-UC-LBO" secondAttribute="leading" id="ikB-CZ-GEa"/>
                                     <constraint firstItem="iWJ-fv-cSF" firstAttribute="leading" secondItem="QMk-UC-LBO" secondAttribute="leading" id="kxi-BB-XuW"/>
                                 </constraints>
                             </scrollView>
@@ -157,6 +149,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="collectionGenres" destination="qBT-WY-qcn" id="03Y-AB-ire"/>
                         <outlet property="imageBackdrop" destination="aa9-3q-Ggz" id="HLv-bo-kD0"/>
                         <outlet property="imageHeight" destination="Rde-cg-EPP" id="h6c-39-puO"/>
                         <outlet property="topNavBar" destination="IyJ-j6-6V0" id="dKq-gT-zfG"/>

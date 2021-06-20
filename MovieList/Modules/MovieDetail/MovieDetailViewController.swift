@@ -13,6 +13,7 @@ class MovieDetailViewController: BaseViewController {
     var selectedMovie: Result?
     let viewModel = MovieDetailViewModel()
     var movieDetailItem: MovieDetail?
+    var movieGenres = [Genre]()
     @IBOutlet weak var imageBackdrop: UIImageView!
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
     @IBOutlet weak var txtTitle: UILabel!
@@ -22,19 +23,19 @@ class MovieDetailViewController: BaseViewController {
     @IBOutlet weak var viewRuntime: MovieInfoView!
     @IBOutlet weak var viewReleaseDate: MovieInfoView!
     
+    @IBOutlet weak var collectionGenres: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setStyle()
         self.getMovieDetail()
+        self.collectionGenres.delegate = self
+        self.collectionGenres.dataSource = self
         
+        let cellGenre = UINib(nibName: "GenreCollectionViewCell", bundle: nil)
+        collectionGenres.register(cellGenre, forCellWithReuseIdentifier: "GenreCollectionViewCell")
         
-        
-        if let myImage = imageBackdrop.image {
-            let myImageHeight = myImage.size.height
-            self.imageHeight.constant = myImageHeight
-        }
 
     }
     
@@ -47,6 +48,12 @@ class MovieDetailViewController: BaseViewController {
         viewModel.getMovieDetails(movieId: (self.selectedMovie?.id)!).subscribe(onNext: { (response: MovieDetail) in
             
             self.movieDetailItem = response
+            if let genres = response.genres {
+                self.movieGenres = genres
+                DispatchQueue.main.async {
+                    self.collectionGenres.reloadData()
+                }
+            }
             DispatchQueue.main.async {
                 self.setDatas()
             }
@@ -69,11 +76,42 @@ class MovieDetailViewController: BaseViewController {
             self.viewAverage.setValues(title: "Vote Average:", value: "Unknown")
         }
         if let runtime = self.movieDetailItem?.runtime {
-            self.viewRuntime.setValues(title: "Run Time:", value: String(runtime) + "min")
+            self.viewRuntime.setValues(title: "Run Time:", value: String(runtime) + " min")
         } else {
             self.viewRuntime.setValues(title: "Run Time:", value: "Unknown")
         }
         self.viewReleaseDate.setValues(title: "Status:", value: self.movieDetailItem?.releaseDate ?? "Unknown")
     }
+    
+}
+
+extension MovieDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        self.movieGenres.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GenreCollectionViewCell", for: indexPath) as! GenreCollectionViewCell
+        cell.setValue(value: self.movieGenres[indexPath.row].name!)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+
+
+        let totalCellWidth = 100 * self.movieGenres.count
+        let totalSpacingWidth = 10 * (self.movieGenres.count - 1)
+
+        let leftInset = (self.collectionGenres.frame.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
+        let rightInset = leftInset
+
+        if leftInset > 0 {
+            return UIEdgeInsets(top: 5, left: leftInset, bottom: 5, right: rightInset)
+        } else {
+            return UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 20)
+        }
+        
+    }
+    
     
 }
