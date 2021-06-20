@@ -27,9 +27,13 @@ class ViewController: BaseViewController{
         
     }
     func setStyle(){
-        self.topNavBar.setTitle("Dashboard")
-        self.topNavBar.hideBackButton()
-        self.topNavBar.dropShadow()
+        
+        if topNavBar != nil {
+            self.topNavBar.setTitle("Dashboard")
+            self.topNavBar.hideBackButton()
+            self.topNavBar.dropShadow()
+        }
+
     }
     func getMovieList() {
         viewModel.getMovies(page: self.page).subscribe(onNext: { (response: Movie) in

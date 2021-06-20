@@ -40,8 +40,10 @@ class MovieDetailViewController: BaseViewController {
     }
     
     func setStyle(){
-        self.topNavBar.setTitle(self.selectedMovie?.title ?? "Movie Detail")
-        self.topNavBar.dropShadow()
+        if topNavBar != nil {
+            self.topNavBar.setTitle(self.selectedMovie?.title ?? "Movie Detail")
+            self.topNavBar.dropShadow()
+        }
     }
     
     func getMovieDetail(){

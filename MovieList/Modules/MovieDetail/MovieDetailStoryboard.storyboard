@@ -130,7 +130,7 @@
                                 <constraints>
                                     <constraint firstItem="iWJ-fv-cSF" firstAttribute="top" secondItem="QMk-UC-LBO" secondAttribute="top" id="6X5-Kg-Hwc"/>
                                     <constraint firstItem="iWJ-fv-cSF" firstAttribute="width" secondItem="QMk-UC-LBO" secondAttribute="width" id="8ob-jC-5QQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="iWJ-fv-cSF" secondAttribute="bottom" id="LL3-aZ-NBQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="iWJ-fv-cSF" secondAttribute="bottom" constant="30" id="LL3-aZ-NBQ"/>
                                     <constraint firstAttribute="trailing" secondItem="iWJ-fv-cSF" secondAttribute="trailing" id="VwC-Gp-9iF"/>
                                     <constraint firstItem="iWJ-fv-cSF" firstAttribute="leading" secondItem="QMk-UC-LBO" secondAttribute="leading" id="kxi-BB-XuW"/>
                                 </constraints>
